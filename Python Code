@@ -1,0 +1,14 @@
+import math
+def middle_permutation(string):
+    lst = sorted(string)
+    middle = (len(lst)-1)//2
+    first = lst[middle]
+    lst.remove(first)
+    
+    if len(string) % 2 != 0:
+        next = lst[middle-1]
+        lst.remove(next)
+        first = first + next
+
+    lst.sort(reverse = True)
+    return first + ''.join(lst)
